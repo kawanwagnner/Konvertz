@@ -1,0 +1,82 @@
+/* Efeito máquina de escrever */
+.typewriter {
+    border-right: 3px solid;
+    white-space: nowrap;
+    overflow: hidden;
+    animation: typing 3.5s steps(40) 1s 1 normal both,
+        blink-caret .75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: #00f5d4
+    }
+}
+
+/* Efeito gradiente animado */
+.gradient-bg {
+    background: linear-gradient(-45deg, #002366, #003399, #0066cc, #00f5d4);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%
+    }
+
+    50% {
+        background-position: 100% 50%
+    }
+
+    100% {
+        background-position: 0% 50%
+    }
+}
+
+/* Card que flutua */
+.floating-card {
+    animation: float 6s ease-in-out infinite;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+}
+
+/* Efeito de destaque */
+.highlight {
+    position: relative;
+    z-index: 1;
+}
+
+.highlight:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+    background: #00f5d4;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.4s ease-in-out;
+}
+
+.highlight:hover:before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
