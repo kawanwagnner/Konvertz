@@ -38,7 +38,7 @@
       rel="stylesheet"
     />
     <style>
-      /* Garante o layout responsivo imediato sem afetar animações */
+      /* Força o layout responsivo imediatamente */
       @media (min-width: 1024px) {
         .lg\:flex-row {
           flex-direction: row !important;
@@ -48,13 +48,9 @@
         }
       }
 
-      /* Configuração otimizada para o AOS */
+      /* Otimizações para o AOS */
       [data-aos] {
-        pointer-events: none;
         transition-property: opacity, transform !important;
-      }
-      [data-aos].aos-animate {
-        pointer-events: auto;
       }
     </style>
     <!-- AOS -->
@@ -1890,19 +1886,17 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script>
-      // Inicializa AOS (Animate On Scroll)
+      // Inicializa AOS (Animate On Scroll) com configurações otimizadas
       AOS.init({
         duration: 800,
         easing: "ease-in-out",
         once: true,
-        // Configurações essenciais:
-        initClassName: "aos-init",
-        animatedClassName: "aos-animate",
-        disableMutationObserver: false, // DEVE ser false para animações
+        disableMutationObserver: true, // Impede que o AOS mexa no DOM inicial
         startEvent: "DOMContentLoaded",
-        // Nova configuração importante:
         offset: 120,
         delay: 100,
+        initClassName: "aos-init",
+        animatedClassName: "aos-animate",
       });
 
       // Contador regressivo
@@ -1982,30 +1976,25 @@
       document.addEventListener("DOMContentLoaded", function () {
         const header = document.querySelector("header");
         let lastScroll = 0;
-        const scrollThreshold = 100; // Quantidade de pixels para começar a esconder
+        const scrollThreshold = 100;
 
         window.addEventListener("scroll", function () {
           const currentScroll =
             window.pageYOffset || document.documentElement.scrollTop;
 
-          // Adiciona pequena tolerância para evitar flickering em dispositivos móveis
           const scrollDiff = Math.abs(currentScroll - lastScroll);
           if (scrollDiff < 5) return;
 
           if (currentScroll <= 10) {
-            // Pequena margem no topo
-            // Topo da página - mostra header
             header.style.transform = "translateY(0)";
             header.classList.add("shadow-md");
           } else if (
             currentScroll > lastScroll &&
             currentScroll > scrollThreshold
           ) {
-            // Rolando PARA BAIXO - esconde header
             header.style.transform = "translateY(-200%)";
             header.classList.remove("shadow-md");
           } else {
-            // Rolando PARA CIMA ou pouco scroll - mostra header
             header.style.transform = "translateY(0)";
             header.classList.add("shadow-md");
           }
