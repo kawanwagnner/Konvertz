@@ -45,6 +45,11 @@
       href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
     />
     <style>
+      body {
+        overflow-x: hidden;
+        width: 100% !important;
+      }
+
       header {
         transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         will-change: transform;
@@ -55,6 +60,12 @@
         left: 0;
         right: 0;
         overflow: hidden;
+        box-sizing: border-box;
+      }
+
+      header > div {
+        width: 100% !important;
+        max-width: 100% !important;
       }
 
       /* Efeito máquina de escrever */
@@ -150,7 +161,7 @@
     <header
       class="fixed w-full bg-power-blue/80 backdrop-blur-md shadow-xl z-50 transition-transform duration-300 ease-in-out transform-gpu"
     >
-      <div class="w-full" style="width: var(--hero-width)">
+      <div class="w-full">
         <div
           class="container mx-auto px-4 py-3 flex justify-between items-center"
         >
@@ -216,8 +227,9 @@
               >
             </a>
           </nav>
+
           <!-- Botões do lado direito -->
-          <div class="flex items-center space-x-2 z-50">
+          <div class="flex items-center space-x-2 z-50 bg-red-600">
             <!-- Botão CTA - Versão Desktop -->
             <a
               href="#form"
