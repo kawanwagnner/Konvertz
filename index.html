@@ -37,6 +37,26 @@
       href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
+    <style>
+      /* Garante o layout responsivo imediato sem afetar animações */
+      @media (min-width: 1024px) {
+        .lg\:flex-row {
+          flex-direction: row !important;
+        }
+        .lg\:w-1\/2 {
+          width: 50% !important;
+        }
+      }
+
+      /* Configuração otimizada para o AOS */
+      [data-aos] {
+        pointer-events: none;
+        transition-property: opacity, transform !important;
+      }
+      [data-aos].aos-animate {
+        pointer-events: auto;
+      }
+    </style>
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- Splide Carousel -->
@@ -1875,6 +1895,14 @@
         duration: 800,
         easing: "ease-in-out",
         once: true,
+        // Configurações essenciais:
+        initClassName: "aos-init",
+        animatedClassName: "aos-animate",
+        disableMutationObserver: false, // DEVE ser false para animações
+        startEvent: "DOMContentLoaded",
+        // Nova configuração importante:
+        offset: 120,
+        delay: 100,
       });
 
       // Contador regressivo
