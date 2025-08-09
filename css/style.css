@@ -1,3 +1,8 @@
+body {
+    overflow-x: hidden;
+    width: 100% !important;
+}
+
 /* Efeito máquina de escrever */
 .typewriter {
     border-right: 3px solid;
