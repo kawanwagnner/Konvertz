@@ -38,29 +38,29 @@
       rel="stylesheet"
     />
     <style>
-      /* Forçar layout responsivo imediatamente para a seção do formulário */
+      /* Correção definitiva para o layout do formulário */
       @media (max-width: 1023px) {
         #form .flex-col {
-          display: flex;
-          flex-direction: column;
+          display: flex !important;
+          flex-direction: column !important;
         }
-
-        #form .lg\:w-1\/2 {
-          width: 100% !important;
-        }
-
         #form .lg\:flex-row {
           flex-direction: column !important;
         }
+        #form .lg\:w-1\/2 {
+          width: 100% !important;
+          min-width: 100% !important;
+          flex: 0 0 100% !important;
+        }
       }
 
-      /* Garantir que o formulário fique abaixo do texto em mobile */
-      #form > div > div {
-        order: 1; /* Texto vem primeiro */
-      }
-
-      #form > div > div + div {
-        order: 2; /* Formulário vem depois */
+      /* Reset completo de transformações do AOS para mobile */
+      @media (max-width: 1023px) {
+        #form [data-aos] {
+          transform: none !important;
+          opacity: 1 !important;
+          transition: none !important;
+        }
       }
     </style>
     <!-- AOS -->
@@ -534,7 +534,11 @@
     <!-- 🎥 Seção Vídeo -->
     <section id="video" class="py-20 bg-white">
       <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+        <div
+          class="max-w-4xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12"
+          style="display: flex; flex-direction: column"
+        >
+          data-aos="fade-up">
           <h2 class="text-3xl md:text-4xl font-black text-power-blue mb-6">
             <span class="highlight px-2">Como Funciona</span> em 90 Segundos
           </h2>
@@ -1987,6 +1991,14 @@
         const header = document.querySelector("header");
         let lastScroll = 0;
         const scrollThreshold = 100;
+
+        setTimeout(function () {
+          const formSection = document.getElementById("form");
+          if (window.innerWidth < 1024) {
+            formSection.querySelector(".flex-col").style.flexDirection =
+              "column";
+          }
+        }, 300);
 
         window.addEventListener("scroll", function () {
           const currentScroll =
