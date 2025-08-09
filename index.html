@@ -140,10 +140,10 @@
     </div>
 
     <!-- 🚀 Header Alienígena -->
-<header class="fixed w-full bg-power-blue/90 backdrop-blur-md shadow-xl z-50">
+<header class="fixed w-full bg-power-blue/80 backdrop-blur-md shadow-xl z-50 transition-transform duration-300 ease-in-out transform-gpu">
   <div class="container mx-auto px-4 py-3 flex justify-between items-center">
     <!-- Logo KZ + KONVERTZ -->
-    <div class="flex items-center">
+    <div class="flex items-center z-50">
       <div class="w-10 h-10 bg-lightning rounded-lg flex items-center justify-center animate-spin-slow">
         <span class="text-power-blue font-black text-xl">KZ</span>
       </div>
@@ -151,7 +151,7 @@
     </div>
 
     <!-- Menu Desktop (centralizado) -->
-    <nav class="hidden xl:flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-8">
+    <nav class="hidden xl:flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-8 z-40">
       <a href="#lei" class="text-white hover:text-lightning transition duration-300 font-medium group">
         <span class="group-hover:border-b-2 group-hover:border-lightning pb-1">É Legal?</span>
       </a>
@@ -170,7 +170,7 @@
     </nav>
 
     <!-- Botões do lado direito -->
-    <div class="flex items-center space-x-2">
+    <div class="flex items-center space-x-2 z-50">
       <!-- Botão CTA - Versão Desktop -->
       <a href="#form" class="hidden md:flex bg-lightning hover:bg-white text-power-blue font-black px-6 py-3 rounded-full transition duration-300 shadow-lg hover:shadow-lightning/40 items-center">
         <span class="mr-2">📊</span>
@@ -193,7 +193,7 @@
   </div>
 
   <!-- Menu Mobile (conteúdo) -->
-  <div class="xl:hidden hidden bg-power-blue/95 backdrop-blur-lg w-full fixed top-16 left-0 right-0" id="mobile-menu">
+  <div class="xl:hidden hidden bg-power-blue/95 backdrop-blur-lg w-full fixed top-16 left-0 right-0 z-40" id="mobile-menu">
     <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
       <a href="#lei" class="mobile-menu-item text-white hover:text-lightning py-2 border-b border-lightning/20">É Legal?</a>
       <a href="#processo" class="mobile-menu-item text-white hover:text-lightning py-2 border-b border-lightning/20">Como Funciona</a>
@@ -235,27 +235,17 @@
 </script>
 
 <style>
-  /* Animação do menu mobile */
-  #mobile-menu {
-    animation: slideDown 0.3s ease-out forwards;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  }
-
-  @keyframes slideDown {
-    from {
-      opacity: 0;
-      transform: translateY(-20px);
+  /* Otimizações para mobile */
+  @media (max-width: 639px) {
+    header {
+      transition: transform 0.2s ease-out;
     }
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-
-  /* Melhorias para telas médias */
-  @media (min-width: 768px) {
+    
     #mobile-menu {
-      top: 68px; /* Ajuste para altura do header */
+      top: 64px; /* Ajuste conforme altura do header */
+      max-height: calc(100vh - 64px);
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
   }
 </style>
@@ -1849,29 +1839,36 @@
 
       // Efeito de rolagem do header
       document.addEventListener("DOMContentLoaded", function () {
-        const header = document.querySelector("header");
-        let lastScroll = 0;
+  const header = document.querySelector("header");
+  let lastScroll = 0;
+  const scrollThreshold = 100; // Quantidade de pixels para começar a esconder
 
-        window.addEventListener("scroll", function () {
-          const currentScroll = window.pageYOffset;
+  window.addEventListener("scroll", function () {
+    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+    
+    // Adiciona pequena tolerância para evitar flickering em dispositivos móveis
+    const scrollDiff = Math.abs(currentScroll - lastScroll);
+    if (scrollDiff < 5) return;
 
-          if (currentScroll <= 0) {
-            // Topo da página - mostra header
-            header.classList.remove("transform", "-translate-y-[180%]");
-            header.classList.add("shadow-md");
-          } else if (currentScroll > lastScroll && currentScroll > 100) {
-            // Rolando PARA BAIXO (após 100px) - esconde header
-            header.classList.add("transform", "-translate-y-[180%]");
-            header.classList.remove("shadow-md");
-          } else {
-            // Rolando PARA CIMA - mostra header
-            header.classList.remove("transform", "-translate-y-[180%]");
-            header.classList.add("shadow-md");
-          }
+    if (currentScroll <= 10) { // Pequena margem no topo
+      // Topo da página - mostra header
+      header.style.transform = "translateY(0)";
+      header.classList.add("shadow-md");
+    } 
+    else if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
+      // Rolando PARA BAIXO - esconde header
+      header.style.transform = "translateY(-200%)";
+      header.classList.remove("shadow-md");
+    } 
+    else {
+      // Rolando PARA CIMA ou pouco scroll - mostra header
+      header.style.transform = "translateY(0)";
+      header.classList.add("shadow-md");
+    }
 
-          lastScroll = currentScroll;
-        });
-      });
+    lastScroll = currentScroll;
+  });
+});
     </script>
   </body>
 </html>
