@@ -135,82 +135,130 @@
     <div
       class="bg-thunder text-white py-2 px-4 text-center font-bold animate-pulse-slow"
     >
-      ⚠️ ÚLTIMOS DESCONTOS GARANTIDOS 15% OFF SIMULE HOJE E APROVEITE!
+      ⚠️ ÚLTIMOS DESCONTOS GARANTIDOS 15% OFF. SIMULE HOJE E APROVEITE!
       <span id="counter" class="ml-2">[00:10:32]</span>
     </div>
 
     <!-- 🚀 Header Alienígena -->
-    <header
-      class="fixed w-full bg-power-blue/90 backdrop-blur-md shadow-xl z-50"
-    >
-      <div
-        class="container mx-auto px-4 py-3 flex justify-between items-center"
-      >
-        <div class="flex items-center space-x-3">
-          <div
-            class="w-10 h-10 bg-lightning rounded-lg flex items-center justify-center animate-spin-slow"
-          >
-            <span class="text-power-blue font-black text-xl">KZ</span>
-          </div>
-          <span class="text-2xl font-black text-white">KONVERTZ</span>
-        </div>
-        <nav class="hidden xl:flex items-center space-x-8">
-          <a
-            href="#lei"
-            class="text-white hover:text-lightning transition duration-300 font-medium group"
-          >
-            <span
-              class="group-hover:border-b-2 group-hover:border-lightning pb-1"
-              >É Legal?</span
-            >
-          </a>
-          <a
-            href="#processo"
-            class="text-white hover:text-lightning transition duration-300 font-medium group"
-          >
-            <span
-              class="group-hover:border-b-2 group-hover:border-lightning pb-1"
-              >Como Funciona</span
-            >
-          </a>
-          <a
-            href="#provas"
-            class="text-white hover:text-lightning transition duration-300 font-medium group"
-          >
-            <span
-              class="group-hover:border-b-2 group-hover:border-lightning pb-1"
-              >Provas Reais</span
-            >
-          </a>
-          <a
-            href="#parceiros"
-            class="text-white hover:text-lightning transition duration-300 font-medium group"
-          >
-            <span
-              class="group-hover:border-b-2 group-hover:border-lightning pb-1"
-              >Parceiros</span
-            >
-          </a>
-          <a
-            href="#faq"
-            class="text-white hover:text-lightning transition duration-300 font-medium group"
-          >
-            <span
-              class="group-hover:border-b-2 group-hover:border-lightning pb-1"
-              >FAQ</span
-            >
-          </a>
-        </nav>
-        <a
-          href="#form"
-          class="bg-lightning hover:bg-white text-power-blue font-black px-6 py-3 rounded-full transition duration-300 shadow-lg hover:shadow-lightning/40 flex items-center"
-        >
-          <span class="md:inline-block mr-2">📊</span>
-          <span>SIMULAR </span>
-          <span class="hidden md:inline-block mr-2">ECONOMIA</span>
-        </a>
+<header class="fixed w-full bg-power-blue/90 backdrop-blur-md shadow-xl z-50">
+  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+    <!-- Logo KZ + KONVERTZ -->
+    <div class="flex items-center">
+      <div class="w-10 h-10 bg-lightning rounded-lg flex items-center justify-center animate-spin-slow">
+        <span class="text-power-blue font-black text-xl">KZ</span>
       </div>
-    </header>
+      <span class="hidden md:inline-block text-2xl font-black text-white ml-2">KONVERTZ</span>
+    </div>
+
+    <!-- Menu Desktop (centralizado) -->
+    <nav class="hidden xl:flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-8">
+      <a href="#lei" class="text-white hover:text-lightning transition duration-300 font-medium group">
+        <span class="group-hover:border-b-2 group-hover:border-lightning pb-1">É Legal?</span>
+      </a>
+      <a href="#processo" class="text-white hover:text-lightning transition duration-300 font-medium group">
+        <span class="group-hover:border-b-2 group-hover:border-lightning pb-1">Como Funciona</span>
+      </a>
+      <a href="#provas" class="text-white hover:text-lightning transition duration-300 font-medium group">
+        <span class="group-hover:border-b-2 group-hover:border-lightning pb-1">Provas Reais</span>
+      </a>
+      <a href="#parceiros" class="text-white hover:text-lightning transition duration-300 font-medium group">
+        <span class="group-hover:border-b-2 group-hover:border-lightning pb-1">Parceiros</span>
+      </a>
+      <a href="#faq" class="text-white hover:text-lightning transition duration-300 font-medium group">
+        <span class="group-hover:border-b-2 group-hover:border-lightning pb-1">FAQ</span>
+      </a>
+    </nav>
+
+    <!-- Botões do lado direito -->
+    <div class="flex items-center space-x-2">
+      <!-- Botão CTA - Versão Desktop -->
+      <a href="#form" class="hidden md:flex bg-lightning hover:bg-white text-power-blue font-black px-6 py-3 rounded-full transition duration-300 shadow-lg hover:shadow-lightning/40 items-center">
+        <span class="mr-2">📊</span>
+        SIMULAR ECONOMIA
+      </a>
+
+      <!-- Botão CTA - Versão Mobile -->
+      <a href="#form" class="md:hidden bg-lightning hover:bg-white text-power-blue font-black px-4 py-2 rounded-full transition duration-300 shadow-lg hover:shadow-lightning/40 flex items-center">
+        <span class="mr-1">📊</span>
+        SIMULAR
+      </a>
+
+      <!-- Menu Mobile (botão hamburger) -->
+      <button class="xl:hidden p-2 text-white focus:outline-none" id="mobile-menu-button">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <!-- Menu Mobile (conteúdo) -->
+  <div class="xl:hidden hidden bg-power-blue/95 backdrop-blur-lg w-full fixed top-16 left-0 right-0" id="mobile-menu">
+    <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+      <a href="#lei" class="mobile-menu-item text-white hover:text-lightning py-2 border-b border-lightning/20">É Legal?</a>
+      <a href="#processo" class="mobile-menu-item text-white hover:text-lightning py-2 border-b border-lightning/20">Como Funciona</a>
+      <a href="#provas" class="mobile-menu-item text-white hover:text-lightning py-2 border-b border-lightning/20">Provas Reais</a>
+      <a href="#parceiros" class="mobile-menu-item text-white hover:text-lightning py-2 border-b border-lightning/20">Parceiros</a>
+      <a href="#faq" class="mobile-menu-item text-white hover:text-lightning py-2 border-b border-lightning/20">FAQ</a>
+      <a href="#form" class="bg-lightning hover:bg-white text-power-blue font-bold py-3 px-4 rounded-full text-center mt-2">
+        SIMULAR ECONOMIA
+      </a>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Controle do Menu Mobile
+  const menuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuItems = document.querySelectorAll('.mobile-menu-item');
+
+  // Abrir/fechar menu
+  menuButton.addEventListener('click', function(e) {
+    e.stopPropagation();
+    mobileMenu.classList.toggle('hidden');
+  });
+
+  // Fechar ao clicar em um item
+  menuItems.forEach(item => {
+    item.addEventListener('click', function() {
+      mobileMenu.classList.add('hidden');
+    });
+  });
+
+  // Fechar ao clicar fora
+  document.addEventListener('click', function(e) {
+    if (!mobileMenu.contains(e.target)) {
+      mobileMenu.classList.add('hidden');
+    }
+  });
+</script>
+
+<style>
+  /* Animação do menu mobile */
+  #mobile-menu {
+    animation: slideDown 0.3s ease-out forwards;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  }
+
+  @keyframes slideDown {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* Melhorias para telas médias */
+  @media (min-width: 768px) {
+    #mobile-menu {
+      top: 68px; /* Ajuste para altura do header */
+    }
+  }
+</style>
 
     <!-- 💥 Hero Section Nuclear -->
     <section
