@@ -37,37 +37,6 @@
       href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <style>
-      body {
-        overflow-x: hidden;
-        width: 100% !important;
-      }
-
-      /* Correção definitiva para o layout do formulário */
-      @media (max-width: 1023px) {
-        #form .flex-col {
-          display: flex !important;
-          flex-direction: column !important;
-        }
-        #form .lg\:flex-row {
-          flex-direction: column !important;
-        }
-        #form .lg\:w-1\/2 {
-          width: 100% !important;
-          min-width: 100% !important;
-          flex: 0 0 100% !important;
-        }
-      }
-
-      /* Reset completo de transformações do AOS para mobile */
-      @media (max-width: 1023px) {
-        #form [data-aos] {
-          transform: none !important;
-          opacity: 1 !important;
-          transition: none !important;
-        }
-      }
-    </style>
     <!-- AOS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <!-- Splide Carousel -->
@@ -174,113 +143,111 @@
     <header
       class="fixed w-full bg-power-blue/80 backdrop-blur-md shadow-xl z-50 transition-transform duration-300 ease-in-out transform-gpu"
     >
-      <div
-        class="container mx-auto px-4 py-3 flex justify-between items-center"
-      >
-        <!-- Logo KZ + KONVERTZ -->
-        <div class="flex items-center z-50">
-          <div
-            class="w-10 h-10 bg-lightning rounded-lg flex items-center justify-center animate-spin-slow"
-          >
-            <span class="text-power-blue font-black text-xl">KZ</span>
-          </div>
-          <span
-            class="hidden md:inline-block text-2xl font-black text-white ml-2"
-            >KONVERTZ</span
-          >
-        </div>
-
-        <!-- Menu Desktop (centralizado) -->
-        <nav
-          class="hidden xl:flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-8 z-40"
+      <div class="w-full" style="width: var(--hero-width)">
+        <div
+          class="container mx-auto px-4 py-3 flex justify-between items-center"
         >
-          <a
-            href="#lei"
-            class="text-white hover:text-lightning transition duration-300 font-medium group"
-          >
+          <!-- Logo KZ + KONVERTZ -->
+          <div class="flex items-center z-50">
+            <div
+              class="w-10 h-10 bg-lightning rounded-lg flex items-center justify-center animate-spin-slow"
+            >
+              <span class="text-power-blue font-black text-xl">KZ</span>
+            </div>
             <span
-              class="group-hover:border-b-2 group-hover:border-lightning pb-1"
-              >É Legal?</span
+              class="hidden md:inline-block text-2xl font-black text-white ml-2"
+              >KONVERTZ</span
             >
-          </a>
-          <a
-            href="#processo"
-            class="text-white hover:text-lightning transition duration-300 font-medium group"
+          </div>
+          <!-- Menu Desktop (centralizado) -->
+          <nav
+            class="hidden xl:flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-8 z-40"
           >
-            <span
-              class="group-hover:border-b-2 group-hover:border-lightning pb-1"
-              >Como Funciona</span
+            <a
+              href="#lei"
+              class="text-white hover:text-lightning transition duration-300 font-medium group"
             >
-          </a>
-          <a
-            href="#provas"
-            class="text-white hover:text-lightning transition duration-300 font-medium group"
-          >
-            <span
-              class="group-hover:border-b-2 group-hover:border-lightning pb-1"
-              >Provas Reais</span
+              <span
+                class="group-hover:border-b-2 group-hover:border-lightning pb-1"
+                >É Legal?</span
+              >
+            </a>
+            <a
+              href="#processo"
+              class="text-white hover:text-lightning transition duration-300 font-medium group"
             >
-          </a>
-          <a
-            href="#parceiros"
-            class="text-white hover:text-lightning transition duration-300 font-medium group"
-          >
-            <span
-              class="group-hover:border-b-2 group-hover:border-lightning pb-1"
-              >Parceiros</span
+              <span
+                class="group-hover:border-b-2 group-hover:border-lightning pb-1"
+                >Como Funciona</span
+              >
+            </a>
+            <a
+              href="#provas"
+              class="text-white hover:text-lightning transition duration-300 font-medium group"
             >
-          </a>
-          <a
-            href="#faq"
-            class="text-white hover:text-lightning transition duration-300 font-medium group"
-          >
-            <span
-              class="group-hover:border-b-2 group-hover:border-lightning pb-1"
-              >FAQ</span
+              <span
+                class="group-hover:border-b-2 group-hover:border-lightning pb-1"
+                >Provas Reais</span
+              >
+            </a>
+            <a
+              href="#parceiros"
+              class="text-white hover:text-lightning transition duration-300 font-medium group"
             >
-          </a>
-        </nav>
-
-        <!-- Botões do lado direito -->
-        <div class="flex items-center space-x-2 z-50">
-          <!-- Botão CTA - Versão Desktop -->
-          <a
-            href="#form"
-            class="hidden md:flex bg-lightning hover:bg-white text-power-blue font-black px-6 py-3 rounded-full transition duration-300 shadow-lg hover:shadow-lightning/40 items-center"
-          >
-            <span class="mr-2">📊</span>
-            SIMULAR ECONOMIA
-          </a>
-
-          <!-- Botão CTA - Versão Mobile -->
-          <a
-            href="#form"
-            class="md:hidden bg-lightning hover:bg-white text-power-blue font-black px-4 py-2 rounded-full transition duration-300 shadow-lg hover:shadow-lightning/40 flex items-center"
-          >
-            <span class="mr-1">📊</span>
-            SIMULAR
-          </a>
-
-          <!-- Menu Mobile (botão hamburger) -->
-          <button
-            class="xl:hidden p-2 text-white focus:outline-none"
-            id="mobile-menu-button"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+              <span
+                class="group-hover:border-b-2 group-hover:border-lightning pb-1"
+                >Parceiros</span
+              >
+            </a>
+            <a
+              href="#faq"
+              class="text-white hover:text-lightning transition duration-300 font-medium group"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            </svg>
-          </button>
+              <span
+                class="group-hover:border-b-2 group-hover:border-lightning pb-1"
+                >FAQ</span
+              >
+            </a>
+          </nav>
+          <!-- Botões do lado direito -->
+          <div class="flex items-center space-x-2 z-50">
+            <!-- Botão CTA - Versão Desktop -->
+            <a
+              href="#form"
+              class="hidden md:flex bg-lightning hover:bg-white text-power-blue font-black px-6 py-3 rounded-full transition duration-300 shadow-lg hover:shadow-lightning/40 items-center"
+            >
+              <span class="mr-2">📊</span>
+              SIMULAR ECONOMIA
+            </a>
+            <!-- Botão CTA - Versão Mobile -->
+            <a
+              href="#form"
+              class="md:hidden bg-lightning hover:bg-white text-power-blue font-black px-4 py-2 rounded-full transition duration-300 shadow-lg hover:shadow-lightning/40 flex items-center"
+            >
+              <span class="mr-1">📊</span>
+              SIMULAR
+            </a>
+            <!-- Menu Mobile (botão hamburger) -->
+            <button
+              class="xl:hidden p-2 text-white focus:outline-none"
+              id="mobile-menu-button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                class="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M4 6h16M4 12h16M4 18h16"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -539,11 +506,7 @@
     <!-- 🎥 Seção Vídeo -->
     <section id="video" class="py-20 bg-white">
       <div class="container mx-auto px-4">
-        <div
-          class="max-w-4xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12"
-          style="display: flex; flex-direction: column"
-        >
-          data-aos="fade-up">
+        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
           <h2 class="text-3xl md:text-4xl font-black text-power-blue mb-6">
             <span class="highlight px-2">Como Funciona</span> em 90 Segundos
           </h2>
@@ -1591,11 +1554,11 @@
           </div>
 
           <!-- Formulário - SEMPRE segundo no HTML -->
-          <div class="w-full lg:w-1/2" data-aos="fade-left">
+          <div class="lg:w-1/2" data-aos="fade-left">
             <div
               class="bg-white/10 backdrop-blur-sm border-2 border-lightning/30 rounded-xl lg:rounded-2xl p-6 sm:p-8 shadow-xl lg:shadow-2xl"
             >
-              <form class="w-full space-y-4 sm:space-y-6">
+              <form class="space-y-4 sm:space-y-6">
                 <div>
                   <label
                     for="form-nome"
@@ -1905,17 +1868,11 @@
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <script>
-      // Inicializa AOS (Animate On Scroll) com configurações otimizadas
+      // Inicializa AOS (Animate On Scroll)
       AOS.init({
         duration: 800,
         easing: "ease-in-out",
         once: true,
-        disableMutationObserver: true, // Impede que o AOS mexa no DOM inicial
-        startEvent: "DOMContentLoaded",
-        offset: 120,
-        delay: 100,
-        initClassName: "aos-init",
-        animatedClassName: "aos-animate",
       });
 
       // Contador regressivo
@@ -1997,31 +1954,48 @@
         let lastScroll = 0;
         const scrollThreshold = 100;
 
-        setTimeout(function () {
-          const formSection = document.getElementById("form");
-          if (window.innerWidth < 1024) {
-            formSection.querySelector(".flex-col").style.flexDirection =
-              "column";
+        document.addEventListener("DOMContentLoaded", function () {
+          // 1. Encontre a seção hero
+          const heroSection = document.querySelector(".hero-section"); // Substitua pela classe real do seu hero
+
+          // 2. Obtenha a largura do container do hero
+          function updateHeaderWidth() {
+            if (heroSection) {
+              const heroWidth = heroSection.offsetWidth;
+              document.documentElement.style.setProperty(
+                "--hero-width",
+                `${heroWidth}px`
+              );
+            }
           }
-        }, 300);
+
+          // 3. Atualize na inicialização e no redimensionamento
+          updateHeaderWidth();
+          window.addEventListener("resize", updateHeaderWidth);
+        });
 
         window.addEventListener("scroll", function () {
           const currentScroll =
             window.pageYOffset || document.documentElement.scrollTop;
 
+          // Adiciona pequena tolerância para evitar flickering em dispositivos móveis
           const scrollDiff = Math.abs(currentScroll - lastScroll);
           if (scrollDiff < 5) return;
 
           if (currentScroll <= 10) {
+            // Pequena margem no topo
+            // Topo da página - mostra header
             header.style.transform = "translateY(0)";
             header.classList.add("shadow-md");
           } else if (
             currentScroll > lastScroll &&
             currentScroll > scrollThreshold
           ) {
+            // Rolando PARA BAIXO - esconde header
             header.style.transform = "translateY(-200%)";
             header.classList.remove("shadow-md");
           } else {
+            // Rolando PARA CIMA ou pouco scroll - mostra header
             header.style.transform = "translateY(0)";
             header.classList.add("shadow-md");
           }
