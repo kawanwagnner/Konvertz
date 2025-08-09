@@ -45,13 +45,16 @@
       href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
     />
     <style>
-      body {
-        overflow-x: hidden;
-      }
-
       header {
         transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
         will-change: transform;
+
+        /* try 9999+ */
+        width: 100vw;
+        max-width: 100%;
+        left: 0;
+        right: 0;
+        overflow: hidden;
       }
 
       /* Efeito máquina de escrever */
@@ -147,7 +150,7 @@
     <header
       class="fixed w-full bg-power-blue/80 backdrop-blur-md shadow-xl z-50 transition-transform duration-300 ease-in-out transform-gpu"
     >
-      <div class="w-full" style="width: var(--hero-width, 100%)">
+      <div class="w-full" style="width: var(--hero-width)">
         <div
           class="container mx-auto px-4 py-3 flex justify-between items-center"
         >
@@ -341,7 +344,6 @@
 
     <!-- 💥 Hero Section Nuclear -->
     <section
-      id="hero-section"
       class="pt-20 md:pt-28 lg:pt-36 pb-12 md:pb-20 gradient-bg text-white relative overflow-hidden"
     >
       <!-- Efeito Partículas -->
@@ -1958,26 +1960,6 @@
         const header = document.querySelector("header");
         let lastScroll = 0;
         const scrollThreshold = 100;
-
-        document.addEventListener("DOMContentLoaded", function () {
-          // 1. Encontre a seção hero
-          const heroSection = document.querySelector("#hero-section"); // Substitua pela classe real do seu hero
-
-          // 2. Obtenha a largura do container do hero
-          function updateHeaderWidth() {
-            if (heroSection) {
-              const heroWidth = heroSection.offsetWidth;
-              document.documentElement.style.setProperty(
-                "--hero-width",
-                `${heroWidth}px`
-              );
-            }
-          }
-
-          // 3. Atualize na inicialização e no redimensionamento
-          updateHeaderWidth();
-          window.addEventListener("resize", updateHeaderWidth);
-        });
 
         window.addEventListener("scroll", function () {
           const currentScroll =
