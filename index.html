@@ -38,19 +38,29 @@
       rel="stylesheet"
     />
     <style>
-      /* Força o layout responsivo imediatamente */
-      @media (min-width: 1024px) {
-        .lg\:flex-row {
-          flex-direction: row !important;
+      /* Forçar layout responsivo imediatamente para a seção do formulário */
+      @media (max-width: 1023px) {
+        #form .flex-col {
+          display: flex;
+          flex-direction: column;
         }
-        .lg\:w-1\/2 {
-          width: 50% !important;
+
+        #form .lg\:w-1\/2 {
+          width: 100% !important;
+        }
+
+        #form .lg\:flex-row {
+          flex-direction: column !important;
         }
       }
 
-      /* Otimizações para o AOS */
-      [data-aos] {
-        transition-property: opacity, transform !important;
+      /* Garantir que o formulário fique abaixo do texto em mobile */
+      #form > div > div {
+        order: 1; /* Texto vem primeiro */
+      }
+
+      #form > div > div + div {
+        order: 2; /* Formulário vem depois */
       }
     </style>
     <!-- AOS -->
