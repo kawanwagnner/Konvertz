@@ -140,115 +140,202 @@
     </div>
 
     <!-- 🚀 Header Alienígena -->
-<header class="fixed w-full bg-power-blue/80 backdrop-blur-md shadow-xl z-50 transition-transform duration-300 ease-in-out transform-gpu">
-  <div class="container mx-auto px-4 py-3 flex justify-between items-center">
-    <!-- Logo KZ + KONVERTZ -->
-    <div class="flex items-center z-50">
-      <div class="w-10 h-10 bg-lightning rounded-lg flex items-center justify-center animate-spin-slow">
-        <span class="text-power-blue font-black text-xl">KZ</span>
+    <header
+      class="fixed w-full bg-power-blue/80 backdrop-blur-md shadow-xl z-50 transition-transform duration-300 ease-in-out transform-gpu"
+    >
+      <div
+        class="container mx-auto px-4 py-3 flex justify-between items-center"
+      >
+        <!-- Logo KZ + KONVERTZ -->
+        <div class="flex items-center z-50">
+          <div
+            class="w-10 h-10 bg-lightning rounded-lg flex items-center justify-center animate-spin-slow"
+          >
+            <span class="text-power-blue font-black text-xl">KZ</span>
+          </div>
+          <span
+            class="hidden md:inline-block text-2xl font-black text-white ml-2"
+            >KONVERTZ</span
+          >
+        </div>
+
+        <!-- Menu Desktop (centralizado) -->
+        <nav
+          class="hidden xl:flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-8 z-40"
+        >
+          <a
+            href="#lei"
+            class="text-white hover:text-lightning transition duration-300 font-medium group"
+          >
+            <span
+              class="group-hover:border-b-2 group-hover:border-lightning pb-1"
+              >É Legal?</span
+            >
+          </a>
+          <a
+            href="#processo"
+            class="text-white hover:text-lightning transition duration-300 font-medium group"
+          >
+            <span
+              class="group-hover:border-b-2 group-hover:border-lightning pb-1"
+              >Como Funciona</span
+            >
+          </a>
+          <a
+            href="#provas"
+            class="text-white hover:text-lightning transition duration-300 font-medium group"
+          >
+            <span
+              class="group-hover:border-b-2 group-hover:border-lightning pb-1"
+              >Provas Reais</span
+            >
+          </a>
+          <a
+            href="#parceiros"
+            class="text-white hover:text-lightning transition duration-300 font-medium group"
+          >
+            <span
+              class="group-hover:border-b-2 group-hover:border-lightning pb-1"
+              >Parceiros</span
+            >
+          </a>
+          <a
+            href="#faq"
+            class="text-white hover:text-lightning transition duration-300 font-medium group"
+          >
+            <span
+              class="group-hover:border-b-2 group-hover:border-lightning pb-1"
+              >FAQ</span
+            >
+          </a>
+        </nav>
+
+        <!-- Botões do lado direito -->
+        <div class="flex items-center space-x-2 z-50">
+          <!-- Botão CTA - Versão Desktop -->
+          <a
+            href="#form"
+            class="hidden md:flex bg-lightning hover:bg-white text-power-blue font-black px-6 py-3 rounded-full transition duration-300 shadow-lg hover:shadow-lightning/40 items-center"
+          >
+            <span class="mr-2">📊</span>
+            SIMULAR ECONOMIA
+          </a>
+
+          <!-- Botão CTA - Versão Mobile -->
+          <a
+            href="#form"
+            class="md:hidden bg-lightning hover:bg-white text-power-blue font-black px-4 py-2 rounded-full transition duration-300 shadow-lg hover:shadow-lightning/40 flex items-center"
+          >
+            <span class="mr-1">📊</span>
+            SIMULAR
+          </a>
+
+          <!-- Menu Mobile (botão hamburger) -->
+          <button
+            class="xl:hidden p-2 text-white focus:outline-none"
+            id="mobile-menu-button"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+          </button>
+        </div>
       </div>
-      <span class="hidden md:inline-block text-2xl font-black text-white ml-2">KONVERTZ</span>
-    </div>
 
-    <!-- Menu Desktop (centralizado) -->
-    <nav class="hidden xl:flex items-center absolute left-1/2 transform -translate-x-1/2 space-x-8 z-40">
-      <a href="#lei" class="text-white hover:text-lightning transition duration-300 font-medium group">
-        <span class="group-hover:border-b-2 group-hover:border-lightning pb-1">É Legal?</span>
-      </a>
-      <a href="#processo" class="text-white hover:text-lightning transition duration-300 font-medium group">
-        <span class="group-hover:border-b-2 group-hover:border-lightning pb-1">Como Funciona</span>
-      </a>
-      <a href="#provas" class="text-white hover:text-lightning transition duration-300 font-medium group">
-        <span class="group-hover:border-b-2 group-hover:border-lightning pb-1">Provas Reais</span>
-      </a>
-      <a href="#parceiros" class="text-white hover:text-lightning transition duration-300 font-medium group">
-        <span class="group-hover:border-b-2 group-hover:border-lightning pb-1">Parceiros</span>
-      </a>
-      <a href="#faq" class="text-white hover:text-lightning transition duration-300 font-medium group">
-        <span class="group-hover:border-b-2 group-hover:border-lightning pb-1">FAQ</span>
-      </a>
-    </nav>
+      <!-- Menu Mobile (conteúdo) -->
+      <div
+        class="xl:hidden hidden bg-power-blue/95 backdrop-blur-lg w-full fixed top-16 left-0 right-0 z-40"
+        id="mobile-menu"
+      >
+        <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
+          <a
+            href="#lei"
+            class="mobile-menu-item text-white hover:text-lightning py-2 border-b border-lightning/20"
+            >É Legal?</a
+          >
+          <a
+            href="#processo"
+            class="mobile-menu-item text-white hover:text-lightning py-2 border-b border-lightning/20"
+            >Como Funciona</a
+          >
+          <a
+            href="#provas"
+            class="mobile-menu-item text-white hover:text-lightning py-2 border-b border-lightning/20"
+            >Provas Reais</a
+          >
+          <a
+            href="#parceiros"
+            class="mobile-menu-item text-white hover:text-lightning py-2 border-b border-lightning/20"
+            >Parceiros</a
+          >
+          <a
+            href="#faq"
+            class="mobile-menu-item text-white hover:text-lightning py-2 border-b border-lightning/20"
+            >FAQ</a
+          >
+          <a
+            href="#form"
+            class="bg-lightning hover:bg-white text-power-blue font-bold py-3 px-4 rounded-full text-center mt-2"
+          >
+            SIMULAR ECONOMIA
+          </a>
+        </div>
+      </div>
+    </header>
 
-    <!-- Botões do lado direito -->
-    <div class="flex items-center space-x-2 z-50">
-      <!-- Botão CTA - Versão Desktop -->
-      <a href="#form" class="hidden md:flex bg-lightning hover:bg-white text-power-blue font-black px-6 py-3 rounded-full transition duration-300 shadow-lg hover:shadow-lightning/40 items-center">
-        <span class="mr-2">📊</span>
-        SIMULAR ECONOMIA
-      </a>
+    <script>
+      // Controle do Menu Mobile
+      const menuButton = document.getElementById("mobile-menu-button");
+      const mobileMenu = document.getElementById("mobile-menu");
+      const menuItems = document.querySelectorAll(".mobile-menu-item");
 
-      <!-- Botão CTA - Versão Mobile -->
-      <a href="#form" class="md:hidden bg-lightning hover:bg-white text-power-blue font-black px-4 py-2 rounded-full transition duration-300 shadow-lg hover:shadow-lightning/40 flex items-center">
-        <span class="mr-1">📊</span>
-        SIMULAR
-      </a>
+      // Abrir/fechar menu
+      menuButton.addEventListener("click", function (e) {
+        e.stopPropagation();
+        mobileMenu.classList.toggle("hidden");
+      });
 
-      <!-- Menu Mobile (botão hamburger) -->
-      <button class="xl:hidden p-2 text-white focus:outline-none" id="mobile-menu-button">
-        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-      </button>
-    </div>
-  </div>
+      // Fechar ao clicar em um item
+      menuItems.forEach((item) => {
+        item.addEventListener("click", function () {
+          mobileMenu.classList.add("hidden");
+        });
+      });
 
-  <!-- Menu Mobile (conteúdo) -->
-  <div class="xl:hidden hidden bg-power-blue/95 backdrop-blur-lg w-full fixed top-16 left-0 right-0 z-40" id="mobile-menu">
-    <div class="container mx-auto px-4 py-3 flex flex-col space-y-4">
-      <a href="#lei" class="mobile-menu-item text-white hover:text-lightning py-2 border-b border-lightning/20">É Legal?</a>
-      <a href="#processo" class="mobile-menu-item text-white hover:text-lightning py-2 border-b border-lightning/20">Como Funciona</a>
-      <a href="#provas" class="mobile-menu-item text-white hover:text-lightning py-2 border-b border-lightning/20">Provas Reais</a>
-      <a href="#parceiros" class="mobile-menu-item text-white hover:text-lightning py-2 border-b border-lightning/20">Parceiros</a>
-      <a href="#faq" class="mobile-menu-item text-white hover:text-lightning py-2 border-b border-lightning/20">FAQ</a>
-      <a href="#form" class="bg-lightning hover:bg-white text-power-blue font-bold py-3 px-4 rounded-full text-center mt-2">
-        SIMULAR ECONOMIA
-      </a>
-    </div>
-  </div>
-</header>
+      // Fechar ao clicar fora
+      document.addEventListener("click", function (e) {
+        if (!mobileMenu.contains(e.target)) {
+          mobileMenu.classList.add("hidden");
+        }
+      });
+    </script>
 
-<script>
-  // Controle do Menu Mobile
-  const menuButton = document.getElementById('mobile-menu-button');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const menuItems = document.querySelectorAll('.mobile-menu-item');
+    <style>
+      /* Otimizações para mobile */
+      @media (max-width: 639px) {
+        header {
+          transition: transform 0.2s ease-out;
+        }
 
-  // Abrir/fechar menu
-  menuButton.addEventListener('click', function(e) {
-    e.stopPropagation();
-    mobileMenu.classList.toggle('hidden');
-  });
-
-  // Fechar ao clicar em um item
-  menuItems.forEach(item => {
-    item.addEventListener('click', function() {
-      mobileMenu.classList.add('hidden');
-    });
-  });
-
-  // Fechar ao clicar fora
-  document.addEventListener('click', function(e) {
-    if (!mobileMenu.contains(e.target)) {
-      mobileMenu.classList.add('hidden');
-    }
-  });
-</script>
-
-<style>
-  /* Otimizações para mobile */
-  @media (max-width: 639px) {
-    header {
-      transition: transform 0.2s ease-out;
-    }
-    
-    #mobile-menu {
-      top: 64px; /* Ajuste conforme altura do header */
-      max-height: calc(100vh - 64px);
-      overflow-y: auto;
-      -webkit-overflow-scrolling: touch;
-    }
-  }
-</style>
+        #mobile-menu {
+          top: 64px; /* Ajuste conforme altura do header */
+          max-height: calc(100vh - 64px);
+          overflow-y: auto;
+          -webkit-overflow-scrolling: touch;
+        }
+      }
+    </style>
 
     <!-- 💥 Hero Section Nuclear -->
     <section
@@ -1130,36 +1217,6 @@
                   class="h-12 object-contain"
                 />
               </div>
-              <!-- Parceiro 3 -->
-              <!-- <div
-                class="flex-shrink-0 bg-white p-6 rounded-xl shadow-md flex items-center justify-center"
-              >
-                <img
-                  src="https://via.placeholder.com/180x60?text=Serena+Energia"
-                  alt="Serena Energia"
-                  class="h-12 object-contain"
-                />
-              </div> -->
-              <!-- Parceiro 4 -->
-              <!-- <div
-                class="flex-shrink-0 bg-white p-6 rounded-xl shadow-md flex items-center justify-center"
-              >
-                <img
-                  src="https://via.placeholder.com/180x60?text=Energia+Livre"
-                  alt="Energia Livre"
-                  class="h-12 object-contain"
-                />
-              </div> -->
-              <!-- Parceiro 5 -->
-              <!-- <div
-                class="flex-shrink-0 bg-white p-6 rounded-xl shadow-md flex items-center justify-center"
-              >
-                <img
-                  src="https://via.placeholder.com/180x60?text=SunShare"
-                  alt="SunShare"
-                  class="h-12 object-contain"
-                />
-              </div> -->
               <!-- Repetir para efeito contínuo -->
               <div
                 class="flex-shrink-0 bg-white p-6 rounded-xl shadow-md flex items-center justify-center"
@@ -1179,16 +1236,7 @@
                   class="h-12 object-contain"
                 />
               </div>
-              <!-- <div
-                class="flex-shrink-0 bg-white p-6 rounded-xl shadow-md flex items-center justify-center"
-              >
-                <img
-                  src="https://via.placeholder.com/180x60?text=Serena+Energia"
-                  alt="Serena Energia"
-                  class="h-12 object-contain"
-                />
-              </div>
-            </div> -->
+            </div>
           </div>
         </div>
       </div>
@@ -1423,123 +1471,188 @@
     </section>
 
     <!-- 📝 Seção Formulário -->
-    <section id="form" class="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-power-blue to-black text-white">
-  <div class="container mx-auto px-4 sm:px-6">
-    <!-- Alterei apenas a div container para controlar a ordem -->
-    <div class="max-w-4xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12">
-      <!-- Texto + Benefícios - SEMPRE primeiro no HTML -->
-      <div class="lg:w-1/2" data-aos="fade-right">
-        <h2 class="text-2xl sm:text-3xl md:text-4xl font-black mb-4 md:mb-6 leading-tight">
-          <span class="text-lightning">Envie sua conta</span> e descubra seu desconto
-        </h2>
-        
-        <p class="text-lg sm:text-xl opacity-90 mb-6 md:mb-8">
-          Em <span class="font-bold">menos de 24 horas</span>, nossa equipe envia uma análise personalizada do seu potencial de economia.
-        </p>
+    <section
+      id="form"
+      class="py-12 md:py-16 lg:py-20 bg-gradient-to-br from-power-blue to-black text-white"
+    >
+      <div class="container mx-auto px-4 sm:px-6">
+        <!-- Alterei apenas a div container para controlar a ordem -->
+        <div
+          class="max-w-4xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12"
+        >
+          <!-- Texto + Benefícios - SEMPRE primeiro no HTML -->
+          <div class="lg:w-1/2" data-aos="fade-right">
+            <h2
+              class="text-2xl sm:text-3xl md:text-4xl font-black mb-4 md:mb-6 leading-tight"
+            >
+              <span class="text-lightning">Envie sua conta</span> e descubra seu
+              desconto
+            </h2>
 
-        <div class="space-y-4 sm:space-y-6">
-          <div class="flex items-start">
-            <div class="bg-lightning/20 p-2 rounded-full mr-3 flex-shrink-0">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 text-lightning" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="font-bold text-base sm:text-lg mb-1">Sem compromisso</h3>
-              <p class="text-sm sm:text-base opacity-90">Análise 100% gratuita e sem cobrança</p>
-            </div>
-          </div>
+            <p class="text-lg sm:text-xl opacity-90 mb-6 md:mb-8">
+              Em <span class="font-bold">menos de 24 horas</span>, nossa equipe
+              envia uma análise personalizada do seu potencial de economia.
+            </p>
 
-          <div class="flex items-start">
-            <div class="bg-lightning/20 p-2 rounded-full mr-3 flex-shrink-0">
-              <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 sm:h-6 sm:w-6 text-lightning" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-              </svg>
-            </div>
-            <div>
-              <h3 class="font-bold text-base sm:text-lg mb-1">Dados protegidos</h3>
-              <p class="text-sm sm:text-base opacity-90">Seus dados estão seguros conosco</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Formulário - SEMPRE segundo no HTML -->
-      <div class="lg:w-1/2" data-aos="fade-left">
-        <div class="bg-white/10 backdrop-blur-sm border-2 border-lightning/30 rounded-xl lg:rounded-2xl p-6 sm:p-8 shadow-xl lg:shadow-2xl">
-          <form class="space-y-4 sm:space-y-6">
-            <div>
-              <label for="form-nome" class="block mb-2 text-sm sm:text-base font-medium">Nome Completo</label>
-              <input
-                type="text"
-                id="form-nome"
-                class="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white/10 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-lightning text-white placeholder-white/50 text-sm sm:text-base"
-                placeholder="Seu nome"
-                required
-              />
-            </div>
-
-            <div>
-              <label for="form-email" class="block mb-2 text-sm sm:text-base font-medium">E-mail</label>
-              <input
-                type="email"
-                id="form-email"
-                class="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white/10 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-lightning text-white placeholder-white/50 text-sm sm:text-base"
-                placeholder="seu@email.com"
-                required
-              />
-            </div>
-
-            <div>
-              <label for="form-telefone" class="block mb-2 text-sm sm:text-base font-medium">WhatsApp</label>
-              <input
-                type="tel"
-                id="form-telefone"
-                class="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white/10 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-lightning text-white placeholder-white/50 text-sm sm:text-base"
-                placeholder="(11) 98765-4321"
-                required
-              />
-            </div>
-
-            <div>
-              <label for="form-conta" class="block mb-2 text-sm sm:text-base font-medium">Conta de Luz (PDF ou imagem)</label>
-              <div class="flex flex-col sm:flex-row">
-                <input type="file" id="form-conta" class="hidden" />
-                <label
-                  for="form-conta"
-                  class="bg-lightning hover:bg-white text-power-blue font-medium px-4 sm:px-5 py-3 sm:py-4 rounded-t-lg sm:rounded-l-lg sm:rounded-tr-none cursor-pointer flex-shrink-0 text-sm sm:text-base text-center"
+            <div class="space-y-4 sm:space-y-6">
+              <div class="flex items-start">
+                <div
+                  class="bg-lightning/20 p-2 rounded-full mr-3 flex-shrink-0"
                 >
-                  Escolher arquivo
-                </label>
-                <span
-                  class="bg-white/10 px-4 sm:px-5 py-3 sm:py-4 rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none border border-t-0 sm:border-t sm:border-l-0 border-white/30 truncate text-white/80 text-sm sm:text-base"
-                  id="file-chosen"
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 sm:h-6 sm:w-6 text-lightning"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-base sm:text-lg mb-1">
+                    Sem compromisso
+                  </h3>
+                  <p class="text-sm sm:text-base opacity-90">
+                    Análise 100% gratuita e sem cobrança
+                  </p>
+                </div>
+              </div>
+
+              <div class="flex items-start">
+                <div
+                  class="bg-lightning/20 p-2 rounded-full mr-3 flex-shrink-0"
                 >
-                  Nenhum arquivo escolhido
-                </span>
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    class="h-5 w-5 sm:h-6 sm:w-6 text-lightning"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                    />
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-bold text-base sm:text-lg mb-1">
+                    Dados protegidos
+                  </h3>
+                  <p class="text-sm sm:text-base opacity-90">
+                    Seus dados estão seguros conosco
+                  </p>
+                </div>
               </div>
             </div>
+          </div>
 
-            <button
-              type="submit"
-              class="w-full bg-lightning hover:bg-white text-power-blue font-black py-4 sm:py-5 px-5 sm:px-6 rounded-lg text-base sm:text-lg transition duration-300 shadow-lg hover:shadow-xl hover:shadow-lightning/40 flex items-center justify-center"
+          <!-- Formulário - SEMPRE segundo no HTML -->
+          <div class="lg:w-1/2" data-aos="fade-left">
+            <div
+              class="bg-white/10 backdrop-blur-sm border-2 border-lightning/30 rounded-xl lg:rounded-2xl p-6 sm:p-8 shadow-xl lg:shadow-2xl"
             >
-              <span class="mr-2 sm:mr-3">⚡</span>
-              ENVIAR E SIMULAR ECONOMIA
-            </button>
+              <form class="space-y-4 sm:space-y-6">
+                <div>
+                  <label
+                    for="form-nome"
+                    class="block mb-2 text-sm sm:text-base font-medium"
+                    >Nome Completo</label
+                  >
+                  <input
+                    type="text"
+                    id="form-nome"
+                    class="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white/10 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-lightning text-white placeholder-white/50 text-sm sm:text-base"
+                    placeholder="Seu nome"
+                    required
+                  />
+                </div>
 
-            <p class="text-xs sm:text-sm text-center text-white/60">
-              Ao enviar, você concorda com nossos
-              <a href="#" class="text-lightning hover:underline">Termos de Uso</a>
-              e
-              <a href="#" class="text-lightning hover:underline">Política de Privacidade</a>.
-            </p>
-          </form>
+                <div>
+                  <label
+                    for="form-email"
+                    class="block mb-2 text-sm sm:text-base font-medium"
+                    >E-mail</label
+                  >
+                  <input
+                    type="email"
+                    id="form-email"
+                    class="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white/10 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-lightning text-white placeholder-white/50 text-sm sm:text-base"
+                    placeholder="seu@email.com"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label
+                    for="form-telefone"
+                    class="block mb-2 text-sm sm:text-base font-medium"
+                    >WhatsApp</label
+                  >
+                  <input
+                    type="tel"
+                    id="form-telefone"
+                    class="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white/10 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-lightning text-white placeholder-white/50 text-sm sm:text-base"
+                    placeholder="(11) 98765-4321"
+                    required
+                  />
+                </div>
+
+                <div>
+                  <label
+                    for="form-conta"
+                    class="block mb-2 text-sm sm:text-base font-medium"
+                    >Conta de Luz (PDF ou imagem)</label
+                  >
+                  <div class="flex flex-col sm:flex-row">
+                    <input type="file" id="form-conta" class="hidden" />
+                    <label
+                      for="form-conta"
+                      class="bg-lightning hover:bg-white text-power-blue font-medium px-4 sm:px-5 py-3 sm:py-4 rounded-t-lg sm:rounded-l-lg sm:rounded-tr-none cursor-pointer flex-shrink-0 text-sm sm:text-base text-center"
+                    >
+                      Escolher arquivo
+                    </label>
+                    <span
+                      class="bg-white/10 px-4 sm:px-5 py-3 sm:py-4 rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none border border-t-0 sm:border-t sm:border-l-0 border-white/30 truncate text-white/80 text-sm sm:text-base"
+                      id="file-chosen"
+                    >
+                      Nenhum arquivo escolhido
+                    </span>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  class="w-full bg-lightning hover:bg-white text-power-blue font-black py-4 sm:py-5 px-5 sm:px-6 rounded-lg text-base sm:text-lg transition duration-300 shadow-lg hover:shadow-xl hover:shadow-lightning/40 flex items-center justify-center"
+                >
+                  <span class="mr-2 sm:mr-3">⚡</span>
+                  ENVIAR E SIMULAR ECONOMIA
+                </button>
+
+                <p class="text-xs sm:text-sm text-center text-white/60">
+                  Ao enviar, você concorda com nossos
+                  <a href="#" class="text-lightning hover:underline"
+                    >Termos de Uso</a
+                  >
+                  e
+                  <a href="#" class="text-lightning hover:underline"
+                    >Política de Privacidade</a
+                  >.
+                </p>
+              </form>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-  </div>
-    </section> 
+    </section>
 
     <!-- 🏁 Rodapé -->
     <footer class="bg-gray-900 text-white py-12">
@@ -1839,36 +1952,39 @@
 
       // Efeito de rolagem do header
       document.addEventListener("DOMContentLoaded", function () {
-  const header = document.querySelector("header");
-  let lastScroll = 0;
-  const scrollThreshold = 100; // Quantidade de pixels para começar a esconder
+        const header = document.querySelector("header");
+        let lastScroll = 0;
+        const scrollThreshold = 100; // Quantidade de pixels para começar a esconder
 
-  window.addEventListener("scroll", function () {
-    const currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    
-    // Adiciona pequena tolerância para evitar flickering em dispositivos móveis
-    const scrollDiff = Math.abs(currentScroll - lastScroll);
-    if (scrollDiff < 5) return;
+        window.addEventListener("scroll", function () {
+          const currentScroll =
+            window.pageYOffset || document.documentElement.scrollTop;
 
-    if (currentScroll <= 10) { // Pequena margem no topo
-      // Topo da página - mostra header
-      header.style.transform = "translateY(0)";
-      header.classList.add("shadow-md");
-    } 
-    else if (currentScroll > lastScroll && currentScroll > scrollThreshold) {
-      // Rolando PARA BAIXO - esconde header
-      header.style.transform = "translateY(-200%)";
-      header.classList.remove("shadow-md");
-    } 
-    else {
-      // Rolando PARA CIMA ou pouco scroll - mostra header
-      header.style.transform = "translateY(0)";
-      header.classList.add("shadow-md");
-    }
+          // Adiciona pequena tolerância para evitar flickering em dispositivos móveis
+          const scrollDiff = Math.abs(currentScroll - lastScroll);
+          if (scrollDiff < 5) return;
 
-    lastScroll = currentScroll;
-  });
-});
+          if (currentScroll <= 10) {
+            // Pequena margem no topo
+            // Topo da página - mostra header
+            header.style.transform = "translateY(0)";
+            header.classList.add("shadow-md");
+          } else if (
+            currentScroll > lastScroll &&
+            currentScroll > scrollThreshold
+          ) {
+            // Rolando PARA BAIXO - esconde header
+            header.style.transform = "translateY(-200%)";
+            header.classList.remove("shadow-md");
+          } else {
+            // Rolando PARA CIMA ou pouco scroll - mostra header
+            header.style.transform = "translateY(0)";
+            header.classList.add("shadow-md");
+          }
+
+          lastScroll = currentScroll;
+        });
+      });
     </script>
   </body>
 </html>
