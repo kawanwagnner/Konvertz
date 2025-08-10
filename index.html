@@ -45,9 +45,9 @@
       href="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css"
     />
     <style>
+      html,
       body {
         overflow-x: hidden;
-        width: 100% !important;
       }
 
       header {
@@ -369,7 +369,10 @@
         <!-- Layout Flexível -->
         <div class="flex flex-col lg:flex-row items-center lg:items-start">
           <!-- Texto (SEMPRE à esquerda) -->
-          <div class="w-full lg:w-1/2 lg:pr-8 xl:pr-12">
+          <div
+            class="w-full lg:w-1/2 lg:pr-8 xl:pr-12 overflow-hidden"
+            data-aos="fade-right"
+          >
             <span
               class="inline-block mt-10 md:mt-0 bg-lightning text-power-blue px-3 py-1 rounded-full mb-3 font-bold animate-bounce-slow text-sm md:text-base"
             >
@@ -394,6 +397,7 @@
 
             <div
               class="bg-white/10 backdrop-blur-sm p-4 rounded-xl border border-lightning/30 mb-6"
+              overflow-hidden
               data-aos="zoom-in"
             >
               <div class="flex items-start space-x-3">
@@ -449,6 +453,7 @@
           <!-- Card Gráfico (ABAIXO em mobile, À DIREITA em desktop) -->
           <div
             class="w-full lg:w-1/2 mt-10 lg:mt-12 lg:pl-8 xl:pl-12"
+            overflow-hidden
             data-aos="fade-left"
           >
             <div
@@ -525,7 +530,10 @@
     <!-- 🎥 Seção Vídeo -->
     <section id="video" class="py-20 bg-white">
       <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
+        <div
+          class="max-w-4xl mx-auto text-center overflow-hidden"
+          data-aos="fade-up"
+        >
           <h2 class="text-3xl md:text-4xl font-black text-power-blue mb-6">
             <span class="highlight px-2">Como Funciona</span> em 90 Segundos
           </h2>
@@ -536,6 +544,7 @@
 
           <div
             class="aspect-w-16 aspect-h-9 bg-gray-200 rounded-xl overflow-hidden shadow-2xl relative"
+            overflow-hidden
             data-aos="zoom-in"
           >
             <!-- Placeholder do vídeo -->
@@ -572,6 +581,7 @@
           <div class="mt-12 grid sm:grid-cols-3 gap-6">
             <div
               class="bg-gray-50 p-6 rounded-xl"
+              overflow-hidden
               data-aos="fade-up"
               data-aos-delay="100"
             >
@@ -583,6 +593,7 @@
             </div>
             <div
               class="bg-gray-50 p-6 rounded-xl"
+              overflow-hidden
               data-aos="fade-up"
               data-aos-delay="200"
             >
@@ -592,6 +603,7 @@
             </div>
             <div
               class="bg-gray-50 p-6 rounded-xl"
+              overflow-hidden
               data-aos="fade-up"
               data-aos-delay="300"
             >
@@ -607,7 +619,10 @@
     <!-- 🕵️ Seção "É Golpe?" -->
     <section id="lei" class="py-20 bg-gray-100">
       <div class="container mx-auto px-4">
-        <div class="max-w-5xl mx-auto text-center mb-16" data-aos="fade-up">
+        <div
+          class="max-w-5xl mx-auto text-center mb-16 overflow-hidden"
+          data-aos="fade-up"
+        >
           <h2 class="text-3xl md:text-4xl font-black text-power-blue mb-4">
             Isso é <span class="text-thunder">verdade</span> ou é
             <span class="text-thunder">golpe</span>?
@@ -620,7 +635,10 @@
         </div>
 
         <div class="grid lg:grid-cols-2 gap-10">
-          <div class="bg-white p-8 rounded-2xl shadow-xl" data-aos="fade-right">
+          <div
+            class="bg-white p-8 rounded-2xl shadow-xl overflow-hidden"
+            data-aos="fade-right"
+          >
             <div class="flex items-center mb-6">
               <div
                 class="bg-lightning/20 text-power-blue p-3 rounded-full mr-4"
@@ -677,7 +695,10 @@
             </div>
           </div>
 
-          <div class="bg-white p-8 rounded-2xl shadow-xl" data-aos="fade-left">
+          <div
+            class="bg-white p-8 rounded-2xl shadow-xl overflow-hidden"
+            data-aos="fade-left"
+          >
             <div class="flex items-center mb-6">
               <div
                 class="bg-lightning/20 text-power-blue p-3 rounded-full mr-4"
@@ -733,7 +754,10 @@
       class="py-20 bg-gradient-to-br from-power-blue to-black text-white"
     >
       <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center mb-16" data-aos="fade-up">
+        <div
+          class="max-w-4xl mx-auto text-center mb-16 overflow-hidden"
+          data-aos="fade-up"
+        >
           <h2 class="text-3xl md:text-4xl font-black mb-4">
             Migração <span class="text-lightning">Rápida</span> e
             <span class="text-lightning">Sem Risco</span>
@@ -753,6 +777,7 @@
           <!-- Passo 1 -->
           <div
             class="relative mb-16 lg:mb-28 lg:w-1/2 lg:pr-16"
+            overflow-hidden
             data-aos="fade-right"
           >
             <div
@@ -791,6 +816,7 @@
           <!-- Passo 2 -->
           <div
             class="relative mb-16 lg:mb-28 lg:w-1/2 lg:ml-auto lg:pl-16"
+            overflow-hidden
             data-aos="fade-left"
           >
             <div
@@ -825,6 +851,7 @@
           <!-- Passo 3 -->
           <div
             class="relative mb-16 lg:mb-28 lg:w-1/2 lg:pr-16"
+            overflow-hidden
             data-aos="fade-right"
           >
             <div
@@ -868,6 +895,7 @@
           <!-- Passo 4 -->
           <div
             class="relative lg:w-1/2 lg:ml-auto lg:pl-16"
+            overflow-hidden
             data-aos="fade-left"
           >
             <div
@@ -908,7 +936,10 @@
     <!-- 📊 Seção de Resultados -->
     <section id="provas" class="py-20 bg-white">
       <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center mb-16" data-aos="fade-up">
+        <div
+          class="max-w-4xl mx-auto text-center mb-16 overflow-hidden"
+          data-aos="fade-up"
+        >
           <h2 class="text-3xl md:text-4xl font-black text-power-blue mb-4">
             Transformação <span class="text-thunder">Real</span>
           </h2>
@@ -921,6 +952,7 @@
           <!-- Estatística 1 -->
           <div
             class="bg-gray-50 p-8 rounded-xl shadow-md text-center"
+            overflow-hidden
             data-aos="zoom-in"
           >
             <div class="text-5xl font-black text-power-blue mb-3">
@@ -932,6 +964,7 @@
           <!-- Estatística 2 -->
           <div
             class="bg-gray-50 p-8 rounded-xl shadow-md text-center"
+            overflow-hidden
             data-aos="zoom-in"
             data-aos-delay="100"
           >
@@ -942,6 +975,7 @@
           <!-- Estatística 3 -->
           <div
             class="bg-gray-50 p-8 rounded-xl shadow-md text-center"
+            overflow-hidden
             data-aos="zoom-in"
             data-aos-delay="200"
           >
@@ -951,7 +985,7 @@
         </div>
 
         <!-- Carrossel de Depoimentos -->
-        <div class="max-w-6xl mx-auto" data-aos="fade-up">
+        <div class="max-w-6xl mx-auto overflow-hidden" data-aos="fade-up">
           <div class="splide">
             <div class="splide__track">
               <div class="splide__list">
@@ -1195,7 +1229,10 @@
     <!-- 🤝 Seção Parceiros -->
     <section id="parceiros" class="py-20 bg-gray-100">
       <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center mb-16" data-aos="fade-up">
+        <div
+          class="max-w-4xl mx-auto text-center mb-16 overflow-hidden"
+          data-aos="fade-up"
+        >
           <h2 class="text-3xl md:text-4xl font-black text-power-blue mb-4">
             Parceiros <span class="text-thunder">Credenciados</span>
           </h2>
@@ -1204,7 +1241,7 @@
           </p>
         </div>
 
-        <div class="relative" data-aos="fade-up">
+        <div class="relative overflow-hidden" data-aos="fade-up">
           <div
             class="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-gray-100 to-transparent z-10"
           ></div>
@@ -1262,7 +1299,10 @@
     <!-- ❓ FAQ -->
     <section id="faq" class="py-20 bg-white">
       <div class="container mx-auto px-4">
-        <div class="max-w-4xl mx-auto text-center mb-16" data-aos="fade-up">
+        <div
+          class="max-w-4xl mx-auto text-center mb-16 overflow-hidden"
+          data-aos="fade-up"
+        >
           <h2 class="text-3xl md:text-4xl font-black text-power-blue mb-4">
             Perguntas <span class="text-thunder">Frequentes</span>
           </h2>
@@ -1275,6 +1315,7 @@
           <!-- FAQ 1 -->
           <div
             class="border border-gray-200 rounded-xl overflow-hidden"
+            overflow-hidden
             data-aos="fade-up"
           >
             <button
@@ -1311,6 +1352,7 @@
           <!-- FAQ 2 -->
           <div
             class="border border-gray-200 rounded-xl overflow-hidden"
+            overflow-hidden
             data-aos="fade-up"
             data-aos-delay="50"
           >
@@ -1351,6 +1393,7 @@
           <!-- FAQ 3 -->
           <div
             class="border border-gray-200 rounded-xl overflow-hidden"
+            overflow-hidden
             data-aos="fade-up"
             data-aos-delay="100"
           >
@@ -1401,6 +1444,7 @@
           <!-- FAQ 4 -->
           <div
             class="border border-gray-200 rounded-xl overflow-hidden"
+            overflow-hidden
             data-aos="fade-up"
             data-aos-delay="150"
           >
@@ -1438,6 +1482,7 @@
           <!-- FAQ 5 -->
           <div
             class="border border-gray-200 rounded-xl overflow-hidden"
+            overflow-hidden
             data-aos="fade-up"
             data-aos-delay="200"
           >
@@ -1498,7 +1543,7 @@
           class="max-w-4xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12"
         >
           <!-- Texto + Benefícios - SEMPRE primeiro no HTML -->
-          <div class="lg:w-1/2" data-aos="fade-right">
+          <div class="lg:w-1/2 overflow-hidden" data-aos="fade-right">
             <h2
               class="text-2xl sm:text-3xl md:text-4xl font-black mb-4 md:mb-6 leading-tight"
             >
@@ -1573,7 +1618,7 @@
           </div>
 
           <!-- Formulário - SEMPRE segundo no HTML -->
-          <div class="lg:w-1/2">
+          <div class="lg:w-1/2 overflow-hidden" data-aos="fade-left">
             <div
               class="bg-white/10 backdrop-blur-sm border-2 border-lightning/30 rounded-xl lg:rounded-2xl p-6 sm:p-8 shadow-xl lg:shadow-2xl"
             >
@@ -1865,7 +1910,7 @@
     </footer>
 
     <!-- 💬 WhatsApp Flutuante -->
-    <a
+    <!-- <a
       href="https://wa.me/5511999999999?text=Quero%20saber%20mais%20sobre%20economia%20na%20conta%20de%20luz"
       class="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center text-3xl shadow-xl animate-bounce z-50"
     >
@@ -1881,7 +1926,7 @@
           clip-rule="evenodd"
         />
       </svg>
-    </a>
+    </a> -->
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -1891,6 +1936,8 @@
       AOS.init({
         duration: 800,
         easing: "ease-in-out",
+        once: true,
+        mirror: false,
         once: true,
       });
 
