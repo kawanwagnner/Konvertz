@@ -148,7 +148,7 @@
     </style>
   </head>
 
-  <body class="font-sans bg-gray-100 overflow-x-hidden">
+  <body class="font-sans bg-gray-100">
     <!-- 🚨 Barra de Urgência -->
     <div
       class="bg-thunder text-white py-2 px-4 text-center font-bold animate-pulse-slow"
@@ -315,7 +315,6 @@
       // Controle do Menu Mobile
       const menuButton = document.getElementById("mobile-menu-button");
       const mobileMenu = document.getElementById("mobile-menu");
-      const menuItems = document.querySelectorAll(".mobile-menu-item");
 
       // Abrir/fechar menu
       menuButton.addEventListener("click", function (e) {
@@ -323,18 +322,18 @@
         mobileMenu.classList.toggle("hidden");
       });
 
-      // Fechar ao clicar em um item
-      menuItems.forEach((item) => {
+      // Fechar ao clicar fora
+      document.addEventListener("click", function (e) {
+        if (!mobileMenu.contains(e.target) && e.target !== menuButton) {
+          mobileMenu.classList.add("hidden");
+        }
+      });
+
+      // Fechar ao clicar em um item do menu
+      document.querySelectorAll(".mobile-menu-item").forEach((item) => {
         item.addEventListener("click", function () {
           mobileMenu.classList.add("hidden");
         });
-      });
-
-      // Fechar ao clicar fora
-      document.addEventListener("click", function (e) {
-        if (!mobileMenu.contains(e.target)) {
-          mobileMenu.classList.add("hidden");
-        }
       });
     </script>
 
@@ -369,10 +368,7 @@
         <!-- Layout Flexível -->
         <div class="flex flex-col lg:flex-row items-center lg:items-start">
           <!-- Texto (SEMPRE à esquerda) -->
-          <div
-            class="w-full lg:w-1/2 lg:pr-8 xl:pr-12 overflow-hidden"
-            data-aos="fade-right"
-          >
+          <div class="w-full lg:w-1/2 lg:pr-8 xl:pr-12" data-aos="fade-right">
             <span
               class="inline-block mt-10 md:mt-0 bg-lightning text-power-blue px-3 py-1 rounded-full mb-3 font-bold animate-bounce-slow text-sm md:text-base"
             >
@@ -871,7 +867,7 @@
                   class="bg-black/20 p-3 rounded-lg flex items-center justify-center"
                 >
                   <img
-                    src="https://via.placeholder.com/100x40?text=Gov.br"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Gov.br_logo.svg/1200px-Gov.br_logo.svg.png"
                     alt="Gov.br"
                     class="h-6"
                   />
@@ -880,7 +876,7 @@
                   class="bg-black/20 p-3 rounded-lg flex items-center justify-center"
                 >
                   <img
-                    src="https://via.placeholder.com/100x40?text=DocuSign"
+                    src="https://brandlogos.net/wp-content/uploads/2024/04/docusign-logo_brandlogos.net_5wujv.png"
                     alt="DocuSign"
                     class="h-6"
                   />

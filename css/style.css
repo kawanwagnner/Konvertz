@@ -1,6 +1,22 @@
+html,
 body {
     overflow-x: hidden;
+}
+
+header {
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    will-change: transform;
+    width: 100vw;
+    max-width: 100%;
+    left: 0;
+    right: 0;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+header>div {
     width: 100% !important;
+    max-width: 100% !important;
 }
 
 /* Efeito máquina de escrever */
@@ -9,16 +25,16 @@ body {
     white-space: nowrap;
     overflow: hidden;
     animation: typing 3.5s steps(40) 1s 1 normal both,
-        blink-caret .75s step-end infinite;
+        blink-caret 0.75s step-end infinite;
 }
 
 @keyframes typing {
     from {
-        width: 0
+        width: 0;
     }
 
     to {
-        width: 100%
+        width: 100%;
     }
 }
 
@@ -26,11 +42,11 @@ body {
 
     from,
     to {
-        border-color: transparent
+        border-color: transparent;
     }
 
     50% {
-        border-color: #00f5d4
+        border-color: #00f5d4;
     }
 }
 
@@ -43,15 +59,15 @@ body {
 
 @keyframes gradient {
     0% {
-        background-position: 0% 50%
+        background-position: 0% 50%;
     }
 
     50% {
-        background-position: 100% 50%
+        background-position: 100% 50%;
     }
 
     100% {
-        background-position: 0% 50%
+        background-position: 0% 50%;
     }
 }
 
@@ -68,7 +84,7 @@ body {
 }
 
 .highlight:before {
-    content: '';
+    content: "";
     position: absolute;
     left: 0;
     bottom: 0;
