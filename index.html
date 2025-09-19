@@ -210,6 +210,17 @@
         transform: rotate(360deg);
       }
     }
+
+    /* Honeypot: escondido visualmente, mas presente no DOM */
+    .hp-wrapper {
+      position: absolute !important;
+      left: -9999px !important;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      opacity: 0;
+      pointer-events: none;
+    }
   </style>
 </head>
 
@@ -557,7 +568,7 @@
               Proposta Personalizada
             </h3>
             <p class="opacity-90 mb-4">
-              Nossa equipe envia uma proposta com a economia estimada para sua
+              Uma equipe envia uma proposta com a economia estimada para sua
               empresa.
             </p>
           </div>
@@ -694,6 +705,12 @@
                     Nenhum arquivo (PDF, JPG ou PNG) escolhido
                   </span>
                 </div>
+              </div>
+
+              <!-- Honeypot invisível para bots -->
+              <div class="hp-wrapper" aria-hidden="true">
+                <label for="empresa-site">Se você é humano, deixe este campo em branco</label>
+                <input type="text" id="empresa-site" name="empresa_site" autocomplete="off" tabindex="-1" />
               </div>
 
               <button type="submit" id="submit-btn"

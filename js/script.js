@@ -179,6 +179,18 @@ function setButtonLoading(loading) {
 document.getElementById('konvertz-form').addEventListener('submit', async function(e) {
   e.preventDefault();
   
+  // Honeypot: se preenchido, aborta silenciosamente
+  const hp = document.getElementById('empresa-site');
+  if (hp && hp.value) {
+    return;
+  }
+
+  // Tempo mínimo de preenchimento (2s) para evitar bots
+  const MIN_MS = 2000;
+  if (Date.now() - (window.__formStartAt || 0) < MIN_MS) {
+    return;
+  }
+  
   // Obter dados do formulário
   const name = document.getElementById('name').value.trim();
   const email = document.getElementById('email').value.trim();
@@ -259,6 +271,15 @@ document.getElementById('konvertz-form').addEventListener('submit', async functi
 document.addEventListener('DOMContentLoaded', function() {
   // Captura e persiste UTM
   captureAndPersistUtm();
+
+  // Marca o início da sessão do formulário
+  window.__formStartAt = Date.now();
+
+  // Randomiza o name do honeypot para dificultar bots
+  const hp = document.getElementById('empresa-site');
+  if (hp) {
+    hp.name = 'website_' + Math.random().toString(36).slice(2, 8);
+  }
 
   // Verificar se o Supabase está configurado
   if (!window.supabaseClient) {
