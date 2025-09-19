@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin | Konvertz</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+</head>
+<body class="bg-gray-100">
+  <div class="max-w-6xl mx-auto p-6">
+    <h1 class="text-2xl font-bold mb-4">Admin Konvertz</h1>
+
+    <div id="login" class="bg-white p-4 rounded shadow mb-6">
+      <h2 class="font-semibold mb-2">Login</h2>
+      <input id="admin-email" class="border p-2 mr-2" type="email" placeholder="Email" />
+      <input id="admin-pass" class="border p-2 mr-2" type="password" placeholder="Senha" />
+      <button id="btn-login" class="bg-blue-600 text-white px-4 py-2 rounded">Entrar</button>
+      <p id="login-msg" class="text-sm text-red-600 mt-2"></p>
+    </div>
+
+    <div id="panel" class="hidden">
+      <div class="flex justify-between items-center mb-4">
+        <h2 class="text-xl font-semibold">Leads</h2>
+        <button id="btn-logout" class="text-sm text-red-600">Sair</button>
+      </div>
+      <div class="bg-white p-4 rounded shadow overflow-x-auto">
+        <table class="min-w-full text-sm">
+          <thead>
+            <tr class="text-left border-b">
+              <th class="p-2">Criado</th>
+              <th class="p-2">Nome</th>
+              <th class="p-2">Email</th>
+              <th class="p-2">Telefone</th>
+              <th class="p-2">UTM</th>
+              <th class="p-2">Fatura</th>
+            </tr>
+          </thead>
+          <tbody id="leads-body"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/supabase-config.js"></script>
+  <script>
+    const supa = window.supabaseClient;
+    const loginEl = document.getElementById('login');
+    const panelEl = document.getElementById('panel');
+
+    async function login() {
+      const email = document.getElementById('admin-email').value.trim();
+      const pass = document.getElementById('admin-pass').value.trim();
+      const { data, error } = await supa.auth.signInWithPassword({ email, password: pass });
+      if (error) {
+        document.getElementById('login-msg').textContent = error.message;
+        return;
+      }
+      loginEl.classList.add('hidden');
+      panelEl.classList.remove('hidden');
+      loadLeads();
+    }
+
+    async function logout() {
+      await supa.auth.signOut();
+      panelEl.classList.add('hidden');
+      loginEl.classList.remove('hidden');
+    }
+
+    async function loadLeads() {
+      const { data, error } = await supa
+        .from('formulario_contatos')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .limit(100);
+      if (error) {
+        alert('Erro ao carregar leads: ' + error.message);
+        return;
+      }
+      const tbody = document.getElementById('leads-body');
+      tbody.innerHTML = '';
+      data.forEach((row) => {
+        const tr = document.createElement('tr');
+        tr.className = 'border-b';
+        const utm = [row.utm_source,row.utm_medium,row.utm_campaign].filter(Boolean).join(' / ');
+        const link = row.arquivo_url
+          ? `<a href="${row.arquivo_url}" target="_blank" class="text-blue-600 underline">Abrir</a>`
+          : '-';
+        tr.innerHTML = `
+          <td class="p-2">${new Date(row.created_at).toLocaleString()}</td>
+          <td class="p-2">${row.nome || ''}</td>
+          <td class="p-2">${row.email || ''}</td>
+          <td class="p-2">${row.telefone || ''}</td>
+          <td class="p-2">${utm || '-'}</td>
+          <td class="p-2">${link}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    document.getElementById('btn-login').addEventListener('click', login);
+    document.getElementById('btn-logout').addEventListener('click', logout);
+  </script>
+</body>
+</html>

@@ -168,6 +168,48 @@
         -webkit-overflow-scrolling: touch;
       }
     }
+
+    /* Notificações */
+    .notification {
+      animation: slideInRight 0.3s ease-out;
+    }
+
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100%);
+        opacity: 0;
+      }
+      to {
+        transform: translateX(0);
+        opacity: 1;
+      }
+    }
+
+    /* Loading state para botão */
+    .btn-loading {
+      position: relative;
+    }
+
+    .btn-loading::after {
+      content: '';
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 50%;
+      left: 50%;
+      margin-left: -8px;
+      margin-top: -8px;
+      border: 2px solid transparent;
+      border-top-color: currentColor;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
   </style>
 </head>
 
@@ -614,49 +656,50 @@
         <div class="lg:w-[50%]" data-aos="fade-left">
           <div
             class="bg-white/10 backdrop-blur-sm border-2 border-lightning/30 rounded-xl lg:rounded-2xl p-6 sm:p-8 shadow-xl lg:shadow-2xl">
-            <form class="space-y-4 sm:space-y-6">
+            <form id="konvertz-form" class="space-y-4 sm:space-y-6">
               <div>
-                <label for="form-nome" class="block mb-2 text-sm sm:text-base font-medium">Nome Completo</label>
-                <input type="text" id="form-nome"
+                <label for="name" class="block mb-2 text-sm sm:text-base font-medium">Nome Completo <span class="text-red-400">*</span></label>
+                <input type="text" id="name" name="name"
                   class="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white/10 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-lightning text-white placeholder-white/50 text-sm sm:text-base"
-                  placeholder="Seu nome" required />
+                  placeholder="Seu nome completo" required />
               </div>
 
               <div>
-                <label for="form-email" class="block mb-2 text-sm sm:text-base font-medium">E-mail</label>
-                <input type="email" id="form-email"
+                <label for="email" class="block mb-2 text-sm sm:text-base font-medium">E-mail <span class="text-red-400">*</span></label>
+                <input type="email" id="email" name="email"
                   class="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white/10 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-lightning text-white placeholder-white/50 text-sm sm:text-base"
                   placeholder="seu@email.com" required />
               </div>
 
               <div>
-                <label for="form-telefone" class="block mb-2 text-sm sm:text-base font-medium">WhatsApp</label>
-                <input type="tel" id="form-telefone"
+                <label for="phone" class="block mb-2 text-sm sm:text-base font-medium">WhatsApp <span class="text-red-400">*</span></label>
+                <input type="tel" id="phone" name="phone"
                   class="w-full px-4 sm:px-5 py-3 sm:py-4 bg-white/10 border border-white/30 rounded-lg focus:outline-none focus:ring-2 focus:ring-lightning text-white placeholder-white/50 text-sm sm:text-base"
                   placeholder="(11) 98765-4321" required />
               </div>
 
               <div>
-                <label for="form-conta" class="block mb-2 text-sm sm:text-base font-medium">Conta de Luz (PDF ou
-                  imagem)</label>
+                <label for="file-upload" class="block mb-2 text-sm sm:text-base font-medium">
+                  Conta de Luz (PDF ou imagem) <span class="text-red-400">*</span>
+                </label>
                 <div class="flex flex-col sm:flex-row">
-                  <input type="file" id="form-conta" class="hidden" />
-                  <label for="form-conta"
+                  <input type="file" id="file-upload" name="file-upload" class="hidden" accept=".pdf,.jpg,.jpeg,.png" required />
+                  <label for="file-upload"
                     class="bg-lightning hover:bg-white text-power-blue font-medium px-4 sm:px-5 py-3 sm:py-4 rounded-t-lg sm:rounded-l-lg sm:rounded-tr-none cursor-pointer flex-shrink-0 text-sm sm:text-base text-center">
-                    Escolher arquivo
+                    Escolher arquivo *
                   </label>
                   <span
                     class="bg-white/10 px-4 sm:px-5 py-3 sm:py-4 rounded-b-lg sm:rounded-r-lg sm:rounded-bl-none border border-t-0 sm:border-t sm:border-l-0 border-white/30 truncate text-white/80 text-sm sm:text-base"
                     id="file-chosen">
-                    Nenhum arquivo escolhido
+                    Nenhum arquivo (PDF, JPG ou PNG) escolhido
                   </span>
                 </div>
               </div>
 
-              <button type="submit"
+              <button type="submit" id="submit-btn"
                 class="w-full bg-lightning hover:bg-white text-power-blue font-black py-4 sm:py-5 px-5 sm:px-6 rounded-lg text-base sm:text-lg transition duration-300 shadow-lg hover:shadow-xl hover:shadow-lightning/40 flex items-center justify-center">
                 <span class="mr-2 sm:mr-3">⚡</span>
-                ENVIAR E SIMULAR ECONOMIA
+                <span id="submit-text">ENVIAR E SIMULAR ECONOMIA</span>
               </button>
 
               <p class="text-xs sm:text-sm text-center text-white/60">
@@ -1013,6 +1056,12 @@
   <!-- Scripts -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+  <!-- Supabase -->
+  <script src="https://unpkg.com/@supabase/supabase-js@2"></script>
+  <!-- Configuração e Scripts Locais -->
+  <script src="js/supabase-config.js"></script>
+  <script src="js/validation.js"></script>
+  <script src="js/script.js"></script>
   <script>
     // Inicializa AOS (Animate On Scroll)
     AOS.init({
